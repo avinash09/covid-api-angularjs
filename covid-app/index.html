@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+   <!-- <link rel="stylesheet" href="css/style.css"/>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/myscript.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+        <div class="jumbotron py-3">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-3">The Corona virus Disease 2019 (Covid-19) pendamic is knocking on 
+                indian door after infecting ten of thousand of people in 
+                over 60 countries across the world. This week, India reported 
+                three fresh corona virus cases, taking the total number 
+                confirmed infactions in the country to six. And since then, 
+                focus has increasingly shifted to the fallout impact of the 
+                new Covid-19 cases and to the question of how ready the country is to fight the global outbreak. 
+            </p>
+
+           <!-- all data-->
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h3>Confirmed Cases</h3>
+                            <h3>{{all_data.confirmed.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>Recovered Cases</h3>
+                            <h3>{{all_data.recovered.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Deaths Cases</h3>
+                            <h3>{{all_data.deaths.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!-- all data end-->
+
+           <input type="text" name="country" ng-model="country" 
+           placeholder="Enter Country Name" class=" form-control mt-4"
+           ng-change="getCountryData()"/>
+
+
+           <div class="container-fluid" ng-if="all_country_data">
+            <h3 class="mt-4 text-center text-uppercase">{{country}} Status</h3>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h3>Confirmed Cases</h3>
+                            <h3>{{all_country_data.confirmed.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>Recovered Cases</h3>
+                            <h3>{{all_country_data.recovered.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Deaths Cases</h3>
+                            <h3>{{all_country_data.deaths.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
